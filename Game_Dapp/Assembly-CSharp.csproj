@@ -36,8 +36,9 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\PlayerMoviment.cs" />
-     <Compile Include="Assets\troca.cs" />
+     <Compile Include="Assets\script\PlayerMoviment.cs" />
+     <Compile Include="Assets\script\TrocaScene.cs" />
+     <Compile Include="Assets\trocaScene02.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Users/Admnistrator/Desktop/2020.3.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

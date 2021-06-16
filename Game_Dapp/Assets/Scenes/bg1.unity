@@ -360,9 +360,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 853495842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcbbb763f633eca40a9b6b192c3f735e, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c660eb92255fa24ca741c394889d61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneValue: 1
 --- !u!61 &853495844
 BoxCollider2D:
   m_ObjectHideFlags: 0
