@@ -364,6 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneValue: 1
+  collider: {fileID: 0}
 --- !u!61 &853495844
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -470,7 +471,7 @@ GameObject:
   - component: {fileID: 1493789213}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -600,7 +601,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 4
-  JumpForce: 4
+  JumpForce: 5
+  forwardJumpForce: 2
+  allowedJumpsInAir: 1
 --- !u!1 &1930762308
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,7 +619,7 @@ GameObject:
   - component: {fileID: 1930762312}
   - component: {fileID: 1930762311}
   - component: {fileID: 1930762310}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
