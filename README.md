@@ -1,4 +1,4 @@
-# GTA San Andreas - "2D recriation" (Home)
+# GTA San Andreas - "2D recriation"
 
 ## Warning
 
