@@ -12,6 +12,7 @@ public class PlayerMoviment : MonoBehaviour
     private Rigidbody2D rig;
     private BoxCollider2D boxCollider;
     private LayerMask groundLayer;
+    private Animator animator;
     
 
     // Start is called before the first frame update
@@ -20,12 +21,32 @@ public class PlayerMoviment : MonoBehaviour
         groundLayer = LayerMask.GetMask("Solid");
         rig = GetComponent<Rigidbody2D>(); //controla a graviadde do personagem
         boxCollider = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update() //executa mais de uma vez
     {
-        Move();
+        float inputHorizontal = Input.GetAxis("Horizontal");
+        bool shouldMove = Mathf.Abs(inputHorizontal) > 0.01f;
+        bool isRunning = Input.GetKey(KeyCode.LeftShift);
+
+        if (shouldMove) {
+            turnCharacterToDirection(inputHorizontal);
+
+            if (isRunning) {
+                Run(inputHorizontal);
+                animator.SetBool("walk", false);
+                animator.SetBool("run", true);
+            } else {
+                Walk(inputHorizontal);
+                animator.SetBool("walk", true);
+                animator.SetBool("run", false);
+            }
+        } else {
+            animator.SetBool("walk", false);
+            animator.SetBool("run", false);
+        }
 
         if (Input.GetButtonDown("Jump")) {
             Jump();
@@ -36,21 +57,23 @@ public class PlayerMoviment : MonoBehaviour
         return Mathf.Sign(transform.localScale.x);
     }
 
-    void Move() //loica do moviemntoo do pergonagem
-    {
-        float inputHorizontal = Input.GetAxis("Horizontal");
-
-        if (Mathf.Abs(inputHorizontal) > 0.01f)
-        {
-            transform.localScale = new Vector3(
-                Mathf.Sign(inputHorizontal) * Mathf.Abs(transform.localScale.x), 
-                transform.localScale.y,
-                transform.localScale.z
-            );
-        }
-
+    void Walk(float inputHorizontal) //loica do moviemntoo do pergonagem
+    {   
         Vector3 movement = new Vector3(inputHorizontal, 0f, 0f);
         transform.position += movement * Speed * Time.deltaTime;
+    }
+
+    void Run (float inputHorizontal) {
+        Vector3 movement = new Vector3(inputHorizontal, 0f, 0f);
+        transform.position += movement * 2 * Speed * Time.deltaTime;
+    }
+
+    void turnCharacterToDirection (float inputHorizontal) {
+        transform.localScale = new Vector3(
+            - Mathf.Sign(inputHorizontal) * Mathf.Abs(transform.localScale.x), 
+            transform.localScale.y,
+            transform.localScale.z
+        );
     }
 
     bool isGrounded() {
