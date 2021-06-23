@@ -54,7 +54,7 @@ public class PlayerMoviment : MonoBehaviour
     }
 
     float getDirection() {
-        return Mathf.Sign(transform.localScale.x);
+        return - Mathf.Sign(transform.localScale.x);
     }
 
     void Walk(float inputHorizontal) //loica do moviemntoo do pergonagem
