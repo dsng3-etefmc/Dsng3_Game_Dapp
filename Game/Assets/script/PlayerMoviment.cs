@@ -91,7 +91,7 @@ public class PlayerMoviment : MonoBehaviour
     void Jump() //logica do pulo do personagem
     {
         bool shouldJump = false;
-
+        
         if (this.isGrounded()) {
             this.jumpsInAir = 0;
 
